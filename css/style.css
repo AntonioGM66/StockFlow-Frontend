@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(240, 251, 255);
+}
+
+header {
+    background-color: rgb(0, 51, 102);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.contenedor {
+    width: 420px;
+    margin: 40px auto;
+    background-color: rgb(184, 220, 255);
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
