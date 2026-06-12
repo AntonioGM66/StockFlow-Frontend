@@ -1,28 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: rgb(240, 251, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef8ff;
 }
 
-header {
+.header {
+    height: 110px;
     background-color: rgb(0, 51, 102);
     color: white;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid black;
 }
 
-.contenedor {
-    width: 420px;
-    margin: 40px auto;
-    background-color: rgb(184, 220, 255);
-    padding: 25px;
-    border: 2px solid black;
-    border-radius: 12px;
+.header h1 {
+    margin: 0;
+    font-size: 56px;
+    letter-spacing: 3px;
 }
 
-input, button {
+.layout {
+    display: flex;
+    min-height: calc(100vh - 110px);
+}
+
+.sidebar {
+    width: 170px;
+    background-color: #b7c9d8;
+    border-right: 2px solid black;
+    padding-top: 25px;
+    position: relative;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 14px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background-color: #d8e8f5;
+}
+
+.cerrar-sesion {
+    position: absolute;
+    bottom: 20px;
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    box-sizing: border-box;
+    color: #0056a6 !important;
+    text-decoration: underline !important;
+    border-bottom: none !important;
+}
+
+.contenido {
+    flex: 1;
+    padding: 35px;
+    background-color: #eef8ff;
+}
+
+.contenido h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.cards {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.card {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.panel {
+    background-color: white;
+    border: 2px solid black;
+    padding: 25px;
+    min-height: 250px;
+}
+
+.grafica-placeholder {
+    height: 180px;
+    border: 2px dashed gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
