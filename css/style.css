@@ -109,3 +109,94 @@ body {
     align-items: center;
     justify-content: center;
 }
+/* RF-01 LOGIN */
+
+.login-body {
+    margin: 0;
+    height: 100vh;
+    background-color: rgb(0, 51, 102);
+    display: flex;
+    flex-direction: column;
+    font-family: Comic Sans MS, Arial, sans-serif;
+}
+
+.login-header {
+    height: 130px;
+    background-color: rgb(0, 51, 102);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px solid black;
+}
+
+.login-header h1 {
+    font-size: 70px;
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+.login-main {
+    flex: 1;
+    background-color: rgb(240, 251, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 430px;
+    background-color: rgb(184, 220, 255);
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 35px;
+}
+
+.login-box label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 14px 0;
+    border: 2px solid black;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.login-box button {
+    display: block;
+    margin: 15px auto;
+    padding: 8px 28px;
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: rgb(0, 51, 102);
+    color: white;
+}
+
+.link-login {
+    display: block;
+    color: blue;
+    text-decoration: underline;
+    margin-top: 8px;
+    text-align: center;
+}
+
+#mensajeLogin {
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-footer {
+    height: 65px;
+    background-color: rgb(0, 51, 102);
+    border-top: 4px solid black;
+}
