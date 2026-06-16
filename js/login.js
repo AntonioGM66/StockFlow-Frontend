@@ -39,3 +39,66 @@ loginForm.addEventListener('submit', async (e) => {
         mensajeLogin.style.color = 'red';
     }
 });
+
+const API_USUARIOS = 'http://localhost:4000/usuarios';
+
+const abrirRegistro = document.getElementById('abrirRegistro');
+const modalRegistro = document.getElementById('modalRegistro');
+const cancelarRegistro = document.getElementById('cancelarRegistro');
+const registroForm = document.getElementById('registroForm');
+const mensajeRegistro = document.getElementById('mensajeRegistro');
+
+abrirRegistro.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalRegistro.style.display = 'flex';
+});
+
+cancelarRegistro.addEventListener('click', () => {
+    modalRegistro.style.display = 'none';
+    registroForm.reset();
+    mensajeRegistro.textContent = '';
+});
+
+registroForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const datosRegistro = {
+        nombre: document.getElementById('nombre').value,
+        apellidoPaterno: document.getElementById('apellidoPaterno').value,
+        apellidoMaterno: document.getElementById('apellidoMaterno').value,
+        usuario: document.getElementById('usuarioRegistro').value,
+        correo: document.getElementById('correoRegistro').value,
+        password: document.getElementById('passwordRegistro').value,
+        confirmarPassword: document.getElementById('confirmarPassword').value
+    };
+
+    try {
+        const respuesta = await fetch(API_USUARIOS, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosRegistro)
+        });
+
+        const resultado = await respuesta.json();
+
+        if (resultado.success) {
+            mensajeRegistro.textContent = 'Cuenta creada exitosamente';
+            mensajeRegistro.style.color = 'green';
+
+            setTimeout(() => {
+                modalRegistro.style.display = 'none';
+                registroForm.reset();
+                mensajeRegistro.textContent = '';
+            }, 1500);
+        } else {
+            mensajeRegistro.textContent = resultado.message;
+            mensajeRegistro.style.color = 'red';
+        }
+
+    } catch (error) {
+        mensajeRegistro.textContent = 'Error de conexión con el servidor';
+        mensajeRegistro.style.color = 'red';
+    }
+});

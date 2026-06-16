@@ -23,7 +23,7 @@
 
                 <button type="submit">INICIAR SESIÓN</button>
 
-                <a href="#" class="link-login">Crear Cuenta</a>
+                <a href="#" class="link-login" id="abrirRegistro">Crear Cuenta</a>
                 <a href="#" class="link-login">¿Olvidaste tu contraseña?</a>
 
                 <p id="mensajeLogin"></p>
@@ -32,6 +32,42 @@
     </main>
 
     <footer class="login-footer"></footer>
+
+    <div id="modalRegistro" class="modal">
+    <div class="modal-contenido">
+        <h2>Registro de Usuario</h2>
+
+        <form id="registroForm">
+            <label>Nombre:</label>
+            <input type="text" id="nombre">
+
+            <label>Apellido Paterno:</label>
+            <input type="text" id="apellidoPaterno">
+
+            <label>Apellido Materno:</label>
+            <input type="text" id="apellidoMaterno">
+
+            <label>Usuario:</label>
+            <input type="text" id="usuarioRegistro" required>
+
+            <label>Correo:</label>
+            <input type="email" id="correoRegistro" required>
+
+            <label>Contraseña:</label>
+            <input type="password" id="passwordRegistro" required>
+
+            <label>Confirmar Contraseña:</label>
+            <input type="password" id="confirmarPassword" required>
+
+            <div class="modal-botones">
+                <button type="submit">Crear Cuenta</button>
+                <button type="button" id="cancelarRegistro">Cancelar</button>
+            </div>
+
+            <p id="mensajeRegistro"></p>
+        </form>
+    </div>
+</div>
 
     <script src="js/login.js"></script>
 </body>
