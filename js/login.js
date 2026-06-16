@@ -84,21 +84,133 @@ registroForm.addEventListener('submit', async (e) => {
         const resultado = await respuesta.json();
 
         if (resultado.success) {
-            mensajeRegistro.textContent = 'Cuenta creada exitosamente';
-            mensajeRegistro.style.color = 'green';
+    mensajeLogin.textContent = 'Acceso correcto. Redirigiendo...';
+    mensajeLogin.style.color = 'green';
+
+    setTimeout(() => {
+        window.location.href = 'dashboard.html';
+    }, 1000);
+} else {
+    mensajeLogin.textContent = resultado.message;
+    mensajeLogin.style.color = 'red';
+}
+
+    } catch (error) {
+        mensajeLogin.textContent = 'Error de conexión con el servidor';
+        mensajeLogin.style.color = 'red';
+    }
+});
+
+const API_RECUPERAR = 'http://localhost:4000/recuperar-password';
+const API_CAMBIAR_PASSWORD = 'http://localhost:4000/cambiar-password';
+
+const abrirRecuperacion = document.getElementById('abrirRecuperacion');
+const modalRecuperacion = document.getElementById('modalRecuperacion');
+const recuperacionForm = document.getElementById('recuperacionForm');
+const cancelarRecuperacion = document.getElementById('cancelarRecuperacion');
+const mensajeRecuperacion = document.getElementById('mensajeRecuperacion');
+
+const modalNuevaPassword = document.getElementById('modalNuevaPassword');
+const nuevaPasswordForm = document.getElementById('nuevaPasswordForm');
+const cancelarNuevaPassword = document.getElementById('cancelarNuevaPassword');
+const mensajeNuevaPassword = document.getElementById('mensajeNuevaPassword');
+
+let correoVerificado = '';
+
+abrirRecuperacion.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalRecuperacion.style.display = 'flex';
+});
+
+cancelarRecuperacion.addEventListener('click', () => {
+    modalRecuperacion.style.display = 'none';
+    recuperacionForm.reset();
+    mensajeRecuperacion.textContent = '';
+});
+
+recuperacionForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const correo = document.getElementById('correoRecuperacion').value;
+
+    try {
+        const respuesta = await fetch(API_RECUPERAR, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ correo })
+        });
+
+        const resultado = await respuesta.json();
+
+        if (resultado.success) {
+            correoVerificado = resultado.correo;
+
+            mensajeRecuperacion.textContent = 'Correo verificado correctamente';
+            mensajeRecuperacion.style.color = 'green';
 
             setTimeout(() => {
-                modalRegistro.style.display = 'none';
-                registroForm.reset();
-                mensajeRegistro.textContent = '';
-            }, 1500);
+                modalRecuperacion.style.display = 'none';
+                recuperacionForm.reset();
+                mensajeRecuperacion.textContent = '';
+                modalNuevaPassword.style.display = 'flex';
+            }, 1000);
+
         } else {
-            mensajeRegistro.textContent = resultado.message;
-            mensajeRegistro.style.color = 'red';
+            mensajeRecuperacion.textContent = resultado.message;
+            mensajeRecuperacion.style.color = 'red';
         }
 
     } catch (error) {
-        mensajeRegistro.textContent = 'Error de conexión con el servidor';
-        mensajeRegistro.style.color = 'red';
+        mensajeRecuperacion.textContent = 'Error de conexión con el servidor';
+        mensajeRecuperacion.style.color = 'red';
+    }
+});
+
+cancelarNuevaPassword.addEventListener('click', () => {
+    modalNuevaPassword.style.display = 'none';
+    nuevaPasswordForm.reset();
+    mensajeNuevaPassword.textContent = '';
+});
+
+nuevaPasswordForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const datosCambio = {
+        correo: correoVerificado,
+        nuevaPassword: document.getElementById('nuevaPassword').value,
+        confirmarPassword: document.getElementById('confirmarNuevaPassword').value
+    };
+
+    try {
+        const respuesta = await fetch(API_CAMBIAR_PASSWORD, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosCambio)
+        });
+
+        const resultado = await respuesta.json();
+
+        if (resultado.success) {
+            mensajeNuevaPassword.textContent = 'Contraseña actualizada correctamente';
+            mensajeNuevaPassword.style.color = 'green';
+
+            setTimeout(() => {
+                modalNuevaPassword.style.display = 'none';
+                nuevaPasswordForm.reset();
+                mensajeNuevaPassword.textContent = '';
+            }, 1500);
+
+        } else {
+            mensajeNuevaPassword.textContent = resultado.message;
+            mensajeNuevaPassword.style.color = 'red';
+        }
+
+    } catch (error) {
+        mensajeNuevaPassword.textContent = 'Error de conexión con el servidor';
+        mensajeNuevaPassword.style.color = 'red';
     }
 });
