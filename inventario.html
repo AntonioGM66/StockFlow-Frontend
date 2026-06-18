@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow - Inventario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><h1>STOCKFLOW</h1></header>
+<div class="layout">
+    <aside class="sidebar">
+        <a href="productos.html">Productos</a>
+        <a href="inventario.html">Inventario</a>
+        <a href="#">Ventas</a>
+        <a href="#">Reportes</a>
+        <a href="alertas.html">Alertas</a>
+        <a href="categorias.html">Categorías</a>
+        <a href="marcas.html">Marcas</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="entradas.html">Entradas A.</a>
+        <a href="merma.html">Merma</a>
+        <a href="kardex.html">Kardex</a>
+        <a href="#">Caja</a>
+        <a href="index.html" class="cerrar-sesion">Cerrar sesión</a>
+    </aside>
+    <main class="contenido">
+        <h2>Inventario Disponible</h2>
+        <section class="cards inventario-resumen">
+            <div class="card"><h3>Productos activos</h3><p id="totalProductos">0</p></div>
+            <div class="card"><h3>Unidades disponibles</h3><p id="totalUnidades">0</p></div>
+            <div class="card"><h3>Stock bajo</h3><p id="productosBajoStock">0</p></div>
+            <div class="card"><h3>Agotados</h3><p id="productosAgotados">0</p></div>
+        </section>
+        <section class="tabla-panel">
+            <h2>Existencias por producto</h2>
+            <table>
+                <thead><tr><th>Código</th><th>Producto</th><th>Stock actual</th><th>Stock mínimo</th><th>Estado</th></tr></thead>
+                <tbody id="tablaInventario"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<script src="js/sesion.js"></script>
+<script src="js/inventario.js"></script>
+</body>
+</html>

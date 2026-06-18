@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow - Mermas</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><h1>STOCKFLOW</h1></header>
+<div class="layout">
+    <aside class="sidebar">
+        <a href="productos.html">Productos</a><a href="inventario.html">Inventario</a>
+        <a href="#">Ventas</a><a href="#">Reportes</a><a href="alertas.html">Alertas</a>
+        <a href="categorias.html">Categorías</a><a href="marcas.html">Marcas</a>
+        <a href="proveedores.html">Proveedores</a><a href="entradas.html">Entradas A.</a>
+        <a href="merma.html">Merma</a><a href="kardex.html">Kardex</a><a href="#">Caja</a>
+        <a href="index.html" class="cerrar-sesion">Cerrar sesión</a>
+    </aside>
+    <main class="contenido">
+        <section class="producto-panel">
+            <h2>Ajuste Manual de Stock</h2>
+            <form id="mermaForm" class="formulario-prototipo">
+                <div class="buscador-productos">
+                    <input id="buscarMerma" type="text" placeholder="Buscar Producto">
+                    <button type="button" id="btnBuscarMerma">Buscar</button>
+                </div>
+                <div class="campo"><label>Producto</label><select id="productoMerma" required></select></div>
+                <div class="campo"><label>Stock Actual</label><input id="stockActualMerma" readonly></div>
+                <div class="campo"><label>Cantidad a retirar</label><input id="cantidadMerma" type="number" min="1" required></div>
+                <div class="campo">
+                    <label>Motivo</label>
+                    <select id="motivoMerma"><option>Caducidad</option><option>Daño</option><option>Robo</option><option>Pérdida</option><option>Otro</option></select>
+                </div>
+                <div class="campo"><label>Observaciones</label><textarea id="observacionesMerma" maxlength="300"></textarea></div>
+                <div class="acciones-producto"><button type="submit">Aplicar ajuste</button></div>
+                <p id="mensajeMerma"></p>
+            </form>
+        </section>
+        <section class="tabla-panel">
+            <h2>Historial de Ajustes</h2>
+            <table>
+                <thead><tr><th>Fecha</th><th>Producto</th><th>Cantidad</th><th>Motivo</th></tr></thead>
+                <tbody id="tablaMermas"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<script src="js/sesion.js"></script><script src="js/merma.js"></script>
+</body>
+</html>

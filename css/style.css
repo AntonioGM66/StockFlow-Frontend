@@ -453,3 +453,90 @@ body {
 .tabla-panel td button {
     margin: 3px;
 }
+
+.inventario-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inventario-resumen {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+}
+
+.inventario-resumen .card {
+    width: auto;
+}
+
+.inventario-detalle-form,
+.inventario-ajuste-form {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.inventario-detalle-form > button {
+    height: 42px;
+    margin-bottom: 15px;
+}
+
+.inventario-tabla-interna {
+    margin-top: 18px;
+}
+
+.inventario-contenido .tabla-panel {
+    overflow-x: auto;
+}
+
+.alerta-titulo {
+    color: #d00000;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 24px 0;
+}
+
+.formulario-prototipo {
+    max-width: 760px;
+}
+
+.formulario-prototipo .campo {
+    max-width: 520px;
+}
+
+.filtros-kardex {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 18px;
+    align-items: end;
+    margin: 24px 0;
+}
+
+.filtros-kardex > button {
+    height: 42px;
+    margin-bottom: 15px;
+}
+
+.inventario-total {
+    text-align: right;
+    font-size: 18px;
+}
+
+@media (max-width: 900px) {
+    .inventario-resumen,
+    .inventario-detalle-form,
+    .inventario-ajuste-form,
+    .filtros-kardex {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .inventario-resumen,
+    .inventario-detalle-form,
+    .inventario-ajuste-form,
+    .filtros-kardex {
+        grid-template-columns: 1fr;
+    }
+}

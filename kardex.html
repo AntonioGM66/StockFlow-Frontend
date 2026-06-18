@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow - Kardex</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><h1>STOCKFLOW</h1></header>
+<div class="layout">
+    <aside class="sidebar">
+        <a href="productos.html">Productos</a><a href="inventario.html">Inventario</a>
+        <a href="#">Ventas</a><a href="#">Reportes</a><a href="alertas.html">Alertas</a>
+        <a href="categorias.html">Categorías</a><a href="marcas.html">Marcas</a>
+        <a href="proveedores.html">Proveedores</a><a href="entradas.html">Entradas A.</a>
+        <a href="merma.html">Merma</a><a href="kardex.html">Kardex</a><a href="#">Caja</a>
+        <a href="index.html" class="cerrar-sesion">Cerrar sesión</a>
+    </aside>
+    <main class="contenido">
+        <section class="tabla-panel">
+            <h2>Historial de Movimientos (Kardex)</h2>
+            <div class="buscador-productos"><input id="buscarKardex" placeholder="Buscar Producto"><button id="btnBuscarKardex">Buscar</button></div>
+            <div class="filtros-kardex">
+                <div class="campo"><label>Producto</label><select id="productoKardex"></select></div>
+                <div class="campo"><label>Fecha Inicio</label><input type="date" id="fechaInicio"></div>
+                <div class="campo"><label>Fecha Fin</label><input type="date" id="fechaFin"></div>
+                <button type="button" id="btnConsultarKardex">Consultar</button>
+            </div>
+            <h3>Kardex del Producto</h3>
+            <table>
+                <thead><tr><th>Fecha</th><th>Producto</th><th>Tipo Movimiento</th><th>Cantidad</th><th>Usuario</th><th>Stock Resultante</th></tr></thead>
+                <tbody id="tablaKardex"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<script src="js/sesion.js"></script><script src="js/kardex.js"></script>
+</body>
+</html>
