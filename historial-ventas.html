@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow - Historial de Ventas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><h1>STOCKFLOW</h1></header>
+<div class="layout">
+    <aside class="sidebar">
+        <a href="productos.html">Productos</a><a href="inventario.html">Inventario</a>
+        <a href="ventas.html">Ventas</a><a href="#">Reportes</a><a href="alertas.html">Alertas</a>
+        <a href="categorias.html">Categorías</a><a href="marcas.html">Marcas</a>
+        <a href="proveedores.html">Proveedores</a><a href="entradas.html">Entradas A.</a>
+        <a href="merma.html">Merma</a><a href="kardex.html">Kardex</a><a href="#">Caja</a>
+        <a href="index.html" class="cerrar-sesion">Cerrar sesión</a>
+    </aside>
+    <main class="contenido">
+        <section class="tabla-panel">
+            <div class="venta-encabezado">
+                <h2>Historial de Ventas</h2>
+                <a href="ventas.html">Registrar ventas</a>
+            </div>
+            <div class="filtros-ventas">
+                <div class="campo"><label>Fecha Inicio</label><input type="date" id="fechaInicioVenta"></div>
+                <div class="campo"><label>Fecha Fin</label><input type="date" id="fechaFinVenta"></div>
+                <button type="button" id="btnBuscarHistorial">Buscar historial</button>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Fecha</th><th>Folio</th><th>Total</th><th>Productos</th><th>Estado</th><th>Acciones</th></tr>
+                </thead>
+                <tbody id="tablaHistorialVentas"></tbody>
+            </table>
+            <p id="mensajeHistorial"></p>
+        </section>
+    </main>
+</div>
+
+<div id="modalDetalleVenta" class="modal">
+    <div class="modal-contenido modal-amplio">
+        <h2>Detalle de Venta</h2>
+        <div id="resumenDetalleVenta"></div>
+        <table>
+            <thead><tr><th>Producto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th></tr></thead>
+            <tbody id="tablaDetalleVenta"></tbody>
+        </table>
+        <div id="formCancelarVenta" class="cancelacion-venta oculto">
+            <div class="campo">
+                <label>Motivo</label>
+                <select id="motivoCancelacion">
+                    <option value="Error de captura">Error de captura</option>
+                    <option value="Devolución del cliente">Devolución del cliente</option>
+                    <option value="Producto incorrecto">Producto incorrecto</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="campo"><label>Observaciones</label><textarea id="observacionesCancelacion"></textarea></div>
+            <button type="button" id="btnConfirmarCancelacion">Confirmar cancelación</button>
+        </div>
+        <p id="mensajeDetalleVenta"></p>
+        <div class="modal-botones">
+            <button type="button" id="btnMostrarCancelacion">Registrar Devolución</button>
+            <button type="button" id="btnImprimirDetalle">Imprimir Ticket</button>
+            <button type="button" id="btnCerrarDetalle">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/sesion.js"></script>
+<script src="js/historial-ventas.js"></script>
+</body>
+</html>

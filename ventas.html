@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow - Registrar Ventas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><h1>STOCKFLOW</h1></header>
+<div class="layout">
+    <aside class="sidebar">
+        <a href="productos.html">Productos</a><a href="inventario.html">Inventario</a>
+        <a href="ventas.html">Ventas</a><a href="#">Reportes</a><a href="alertas.html">Alertas</a>
+        <a href="categorias.html">Categorías</a><a href="marcas.html">Marcas</a>
+        <a href="proveedores.html">Proveedores</a><a href="entradas.html">Entradas A.</a>
+        <a href="merma.html">Merma</a><a href="kardex.html">Kardex</a><a href="#">Caja</a>
+        <a href="index.html" class="cerrar-sesion">Cerrar sesión</a>
+    </aside>
+
+    <main class="contenido">
+        <section class="producto-panel">
+            <h2>Registrar Ventas</h2>
+            <p id="estadoCaja"></p>
+
+            <div class="buscador-productos">
+                <input id="buscarVenta" type="text" placeholder="Buscar por ID, nombre o código">
+                <button type="button" id="btnBuscarVenta">Buscar</button>
+            </div>
+
+            <div class="venta-seleccion">
+                <div class="campo">
+                    <label>Producto encontrado</label>
+                    <select id="productoVenta"></select>
+                </div>
+                <div class="campo">
+                    <label>Existencias</label>
+                    <input id="existenciasVenta" readonly>
+                </div>
+                <div class="campo">
+                    <label>Cantidad</label>
+                    <input id="cantidadVenta" type="number" min="1" value="1">
+                </div>
+                <button type="button" id="btnAgregarVenta">Agregar</button>
+            </div>
+            <p id="mensajeVenta"></p>
+        </section>
+
+        <section class="tabla-panel">
+            <div class="venta-encabezado">
+                <h2>Productos de la Venta</h2>
+                <a href="historial-ventas.html">Historial de ventas</a>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Producto</th><th>Cantidad</th><th>Precio unitario</th><th>Subtotal</th><th>Acción</th></tr>
+                </thead>
+                <tbody id="tablaVenta"></tbody>
+            </table>
+            <div class="venta-totales">
+                <p>Subtotal: <strong id="subtotalVenta">$0.00</strong></p>
+                <p>IVA: <strong id="ivaVenta">$0.00</strong></p>
+                <p>Total: <strong id="totalVenta">$0.00</strong></p>
+            </div>
+            <div class="acciones-producto">
+                <button type="button" id="btnRegistrarVenta">Registrar Venta</button>
+                <button type="button" id="btnBorrarVenta">Borrar Venta</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div id="modalPago" class="modal">
+    <div class="modal-contenido">
+        <h2>Método de Pago</h2>
+        <p>Total venta: <strong id="totalPago">$0.00</strong></p>
+        <div class="campo">
+            <label>Método de pago</label>
+            <select id="metodoPago">
+                <option value="Efectivo">Efectivo</option>
+                <option value="Tarjeta">Tarjeta</option>
+                <option value="Transferencia">Transferencia</option>
+            </select>
+        </div>
+        <div class="campo" id="campoEfectivo">
+            <label>Dinero recibido</label>
+            <input type="number" id="dineroRecibido" min="0" step="0.01">
+        </div>
+        <div class="campo oculto" id="campoReferencia">
+            <label id="labelReferencia">Referencia bancaria</label>
+            <input type="text" id="referenciaPago" maxlength="100">
+        </div>
+        <p id="mensajePago"></p>
+        <div class="modal-botones">
+            <button type="button" id="btnCobrar">Cobrar</button>
+            <button type="button" id="btnCancelarPago">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div id="modalTicket" class="modal">
+    <div class="modal-contenido ticket">
+        <h2>Ticket de Venta</h2>
+        <div id="contenidoTicket"></div>
+        <div class="modal-botones">
+            <button type="button" id="btnImprimirTicket">Imprimir</button>
+            <button type="button" id="btnCerrarTicket">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/sesion.js"></script>
+<script src="js/ventas.js"></script>
+</body>
+</html>

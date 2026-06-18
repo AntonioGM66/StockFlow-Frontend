@@ -518,6 +518,116 @@ body {
     margin-bottom: 15px;
 }
 
+.venta-seleccion {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 18px;
+    align-items: end;
+}
+
+.venta-seleccion > button {
+    height: 42px;
+    margin-bottom: 15px;
+}
+
+.venta-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.venta-totales {
+    margin: 22px 0;
+    text-align: right;
+    font-size: 18px;
+}
+
+.venta-totales p {
+    margin: 6px 0;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.ticket {
+    max-width: 430px;
+    font-family: monospace;
+}
+
+.ticket table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket td {
+    padding: 5px;
+    border-bottom: 1px dashed #777;
+}
+
+.filtros-ventas {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.filtros-ventas > button {
+    height: 42px;
+    margin-bottom: 15px;
+}
+
+.modal-amplio {
+    width: min(850px, 92vw);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-amplio table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+}
+
+.modal-amplio th,
+.modal-amplio td {
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+.cancelacion-venta {
+    margin: 22px 0;
+    padding: 18px;
+    border: 1px solid #333;
+    background-color: #f6f6f6;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .modal[style*="display: flex"] .modal-contenido,
+    .modal[style*="display: flex"] .modal-contenido * {
+        visibility: visible;
+    }
+
+    .modal[style*="display: flex"] .modal-contenido {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+
+    .modal-botones {
+        display: none;
+    }
+}
+
 .inventario-total {
     text-align: right;
     font-size: 18px;
@@ -527,7 +637,9 @@ body {
     .inventario-resumen,
     .inventario-detalle-form,
     .inventario-ajuste-form,
-    .filtros-kardex {
+    .filtros-kardex,
+    .venta-seleccion,
+    .filtros-ventas {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -536,7 +648,9 @@ body {
     .inventario-resumen,
     .inventario-detalle-form,
     .inventario-ajuste-form,
-    .filtros-kardex {
+    .filtros-kardex,
+    .venta-seleccion,
+    .filtros-ventas {
         grid-template-columns: 1fr;
     }
 }
