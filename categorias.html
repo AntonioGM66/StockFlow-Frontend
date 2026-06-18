@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow - Categorías</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>STOCKFLOW</h1>
+</header>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <a href="productos.html">Productos</a>
+        <a href="#">Inventario</a>
+        <a href="#">Ventas</a>
+        <a href="#">Reportes</a>
+        <a href="#">Alertas</a>
+        <a href="categorias.html">Categorias</a>
+        <a href="marcas.html">Marcas</a>
+        <a href="#">Proveedores</a>
+        <a href="#">Entradas A.</a>
+        <a href="#">Merma</a>
+        <a href="#">Kardex</a>
+        <a href="#">Caja</a>
+
+        <a href="index.html" class="cerrar-sesion">
+            Cerrar sesión
+        </a>
+    </aside>
+
+    <main class="contenido">
+
+        <section class="producto-panel">
+
+            <h2>Gestión de Categorías</h2>
+
+            <form id="categoriaForm">
+
+                <div class="campo">
+                    <label>Nombre</label>
+                    <input type="text" id="nombreCategoria" maxlength="100" required>
+                </div>
+
+                <div class="campo">
+                    <label>Descripción</label>
+                    <textarea id="descripcionCategoria" maxlength="500"></textarea>
+                </div>
+
+                <div class="acciones-producto">
+                    <button type="submit" id="btnGuardarCategoria">
+                        Guardar
+                    </button>
+
+                    <button type="button" id="btnCancelarCategoria">
+                        Cancelar
+                    </button>
+                </div>
+
+                <p id="mensajeCategoria"></p>
+
+            </form>
+
+        </section>
+
+        <section class="tabla-panel">
+
+            <h2>Categorías Registradas</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaCategorias">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/categorias.js"></script>
+
+</body>
+</html>
