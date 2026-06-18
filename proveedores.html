@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockFlow - Marcas</title>
+    <title>StockFlow - Proveedores</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,7 +12,6 @@
 </header>
 
 <div class="layout">
-
     <aside class="sidebar">
         <a href="productos.html">Productos</a>
         <a href="#">Inventario</a>
@@ -27,65 +25,68 @@
         <a href="#">Merma</a>
         <a href="#">Kardex</a>
         <a href="#">Caja</a>
-
         <a href="index.html" class="cerrar-sesion">Cerrar sesión</a>
     </aside>
 
     <main class="contenido">
 
         <section class="producto-panel">
+            <h2>Gestión de Proveedores</h2>
 
-            <h2>Gestión de Marcas</h2>
-
-            <form id="marcaForm">
-
+            <form id="proveedorForm">
                 <div class="campo">
-                    <label>Nombre</label>
-                    <input type="text" id="nombreMarca" maxlength="100" required>
+                    <label>Nombre / Razón Social</label>
+                    <input type="text" id="razonSocial" maxlength="150" required>
                 </div>
 
                 <div class="campo">
-                    <label>Descripción</label>
-                    <textarea id="descripcionMarca" maxlength="500"></textarea>
+                    <label>RFC / Identificación</label>
+                    <input type="text" id="rfc" maxlength="30" required>
+                </div>
+
+                <div class="campo">
+                    <label>Teléfono</label>
+                    <input type="text" id="telefono" maxlength="30">
+                </div>
+
+                <div class="campo">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="correo" maxlength="120">
                 </div>
 
                 <div class="acciones-producto">
-                    <button type="submit" id="btnGuardarMarca">Guardar</button>
-                    <button type="button" id="btnCancelarMarca">Cancelar</button>
+                    <button type="submit" id="btnGuardarProveedor">Guardar</button>
+                    <button type="button" id="btnCancelarProveedor">Cancelar</button>
                 </div>
 
-                <p id="mensajeMarca"></p>
-
+                <p id="mensajeProveedor"></p>
             </form>
-
         </section>
 
         <section class="tabla-panel">
-
-            <h2>Marcas Registradas</h2>
+            <h2>Proveedores Registrados</h2>
 
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
+                        <th>Razón Social</th>
+                        <th>RFC</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-
-                <tbody id="tablaMarcas"></tbody>
+                <tbody id="tablaProveedores"></tbody>
             </table>
-
         </section>
 
     </main>
-
 </div>
 
 <script src="js/sesion.js"></script>
-<script src="js/marcas.js"></script>
+<script src="js/proveedores.js"></script>
 
 </body>
 </html>

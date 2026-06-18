@@ -3,6 +3,23 @@ const API_LOGIN = 'http://localhost:4000/login';
 const loginForm = document.getElementById('loginForm');
 const mensajeLogin = document.getElementById('mensajeLogin');
 
+const mensajeSesion = sessionStorage.getItem('stockflow_mensaje_sesion');
+
+if (mensajeSesion) {
+    mensajeLogin.textContent = mensajeSesion;
+    mensajeLogin.style.color = 'red';
+    sessionStorage.removeItem('stockflow_mensaje_sesion');
+}
+
+function iniciarSesion(usuario) {
+    sessionStorage.setItem('stockflow_sesion', JSON.stringify({
+        id: usuario.id_usuario,
+        usuario: usuario.usuario,
+        inicio: Date.now()
+    }));
+    sessionStorage.setItem('stockflow_ultima_actividad', String(Date.now()));
+}
+
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -23,6 +40,7 @@ loginForm.addEventListener('submit', async (e) => {
         const resultado = await respuesta.json();
 
         if (resultado.success) {
+            iniciarSesion(resultado.usuario);
             mensajeLogin.textContent = 'Acceso correcto. Redirigiendo...';
             mensajeLogin.style.color = 'green';
 
@@ -84,6 +102,7 @@ registroForm.addEventListener('submit', async (e) => {
         const resultado = await respuesta.json();
 
         if (resultado.success) {
+    iniciarSesion(resultado.usuario);
     mensajeLogin.textContent = 'Acceso correcto. Redirigiendo...';
     mensajeLogin.style.color = 'green';
 
